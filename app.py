@@ -1,15 +1,13 @@
+
 from flask import Flask, request, jsonify
 import requests
 
 app = Flask(__name__)
 
-LIBRETRANSLATE_URL = "https://libretranslate.de/translate"  # Free public instance
+LIBRETRANSLATE_URL = "https://libretranslate.de/translate"  # Free instance
 
-@app.route("/translate", methods=["GET", "POST"])
+@app.route("/translate", methods=["POST"])
 def translate():
-    if request.method == "GET":
-        return "Use POST method to translate text."
-
     data = request.get_json()
 
     if not data or "q" not in data or "source" not in data or "target" not in data:
