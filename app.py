@@ -6,9 +6,14 @@ app = Flask(__name__)
 
 LIBRETRANSLATE_URL = "https://libretranslate.de/translate"  # Free instance
 
-@app.route("/translate", methods=["POST"])
+@app.route("/translate", methods=["GET","POST"])
 def translate():
+
+    if request.method == "GET":
+        return "Use POST method to translate text."
+
     data = request.get_json()
+    
 
     if not data or "q" not in data or "source" not in data or "target" not in data:
         return jsonify({"error": "Missing parameters"}), 400
