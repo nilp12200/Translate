@@ -13,4 +13,4 @@ def translate():
 
 @app.route("/")
 def home():
-    return "LibreTranslate proxy is running!" 
+    return "LibreTranslate proxy is running!"
