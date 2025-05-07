@@ -1,6 +1,3 @@
 
-makefile
-Copy
-Edit
 Flask==2.2.5
 requests
